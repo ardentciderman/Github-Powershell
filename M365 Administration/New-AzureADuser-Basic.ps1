@@ -16,7 +16,7 @@ $PasswordProfile.ForceChangePasswordNextLogin = $true
 $params = @{
     AccountEnable = $true
     PasswordProfile = $PasswordProfile
-    UserPrincipalName = "rebecca.green@gilbertsblackpool.co.uk"
+    UserPrincipalName = "rebecca.green@44vpwy.onmicrosoft.com"
     DisplayName = "Rebecca Green"
 }
 
