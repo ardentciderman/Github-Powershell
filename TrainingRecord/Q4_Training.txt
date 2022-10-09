@@ -1,5 +1,0 @@
-Q4 Training
-
-Github Tutorial - Beginner's Training Guide - https://www.youtube.com/watch?v=iv8rSLsi1xo
-Learning Github - https://www.linkedin.com/learning/learning-github
-Github and Visual Studio - https://resources.github.com/devops/methodology/github-and-visual-studio/
