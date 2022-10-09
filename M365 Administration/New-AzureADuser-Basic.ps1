@@ -8,16 +8,6 @@
 # profile in order to provision the new user.
 
 $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
-$PasswordProfile.Password = “Pas13579"
-$PasswordProfile.ForceChangePasswordNextLogin = $true
+$PasswordProfile.Password = "Pas13579"
+New-AzureADUser -DisplayName "Lisa Pownall" -PasswordProfile $PasswordProfile -UserPrincipalName "lisa.pownall@44vpwy.onmicrosoft.com" -MailNickname "lisa.pownall" -AccountEnabled $true
 
-# With the password profile created we can now create the base user account:
-
-$params = @{
-    AccountEnable = $true
-    PasswordProfile = $PasswordProfile
-    UserPrincipalName = "rebecca.green@44vpwy.onmicrosoft.com"
-    DisplayName = "Rebecca Green"
-}
-
-New-AzureADUser @params
