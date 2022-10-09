@@ -9,5 +9,8 @@
 
 $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
 $PasswordProfile.Password = "Pas13579"
+
+# Provision the base user account
+
 New-AzureADUser -DisplayName "Lisa Pownall" -PasswordProfile $PasswordProfile -UserPrincipalName "lisa.pownall@44vpwy.onmicrosoft.com" -MailNickname "lisa.pownall" -AccountEnabled $true
 
