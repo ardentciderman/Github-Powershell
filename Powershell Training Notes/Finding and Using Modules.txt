@@ -1,0 +1,617 @@
+**********************
+PowerShell transcript start
+**********************
+
+PS C:\> Get-Command -Module PSDiagnostics
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Function        Disable-PSTrace                                    7.0.0.0    PSDiagnostics
+Function        Disable-PSWSManCombinedTrace                       7.0.0.0    PSDiagnostics
+Function        Disable-WSManTrace                                 7.0.0.0    PSDiagnostics
+Function        Enable-PSTrace                                     7.0.0.0    PSDiagnostics
+Function        Enable-PSWSManCombinedTrace                        7.0.0.0    PSDiagnostics
+Function        Enable-WSManTrace                                  7.0.0.0    PSDiagnostics
+Function        Get-LogProperties                                  7.0.0.0    PSDiagnostics
+Function        Set-LogProperties                                  7.0.0.0    PSDiagnostics
+Function        Start-Trace                                        7.0.0.0    PSDiagnostics
+Function        Stop-Trace                                         7.0.0.0    PSDiagnostics
+
+PS C:\> get-module
+
+ModuleType Version    PreRelease Name                                ExportedCommands
+---------- -------    ---------- ----                                ----------------
+Manifest   7.0.0.0               Microsoft.PowerShell.Host           {Start-Transcript, Stop-Transcript}
+Manifest   7.0.0.0               Microsoft.PowerShell.Management     {Add-Content, Clear-Content, Clear-Item, Clear-ItemProperty…
+Manifest   7.0.0.0               Microsoft.PowerShell.Utility        {Add-Member, Add-Type, Clear-Variable, Compare-Object…}
+Script     7.0.0.0               PSDiagnostics                       {Disable-PSTrace, Disable-PSWSManCombinedTrace, Disable-WSM…
+Script     2.1.0                 PSReadLine                          {Get-PSReadLineKeyHandler, Get-PSReadLineOption, Remove-PSR…
+
+PS C:\> get-module -ListAvailable
+
+    Directory: C:\program files\powershell\7\Modules
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Manifest   7.0.0.0               CimCmdlets                          Core      {Get-CimAssociatedInstance, Get-CimClass, Get-Cim…
+Manifest   1.2.5                 Microsoft.PowerShell.Archive        Desk      {Compress-Archive, Expand-Archive}
+Manifest   7.0.0.0               Microsoft.PowerShell.Diagnostics    Core      {Get-WinEvent, New-WinEvent, Get-Counter}
+Manifest   7.0.0.0               Microsoft.PowerShell.Host           Core      {Start-Transcript, Stop-Transcript}
+Manifest   7.0.0.0               Microsoft.PowerShell.Management     Core      {Add-Content, Clear-Content, Get-Clipboard, Set-C…
+Manifest   7.0.0.0               Microsoft.PowerShell.Security       Core      {Get-Acl, Set-Acl, Get-PfxCertificate, Get-Creden…
+Manifest   7.0.0.0               Microsoft.PowerShell.Utility        Core      {Export-Alias, Get-Alias, Import-Alias, New-Alias…
+Manifest   7.0.0.0               Microsoft.WSMan.Management          Core      {Disable-WSManCredSSP, Enable-WSManCredSSP, Get-W…
+Script     1.4.7                 PackageManagement                   Desk      {Find-Package, Get-Package, Get-PackageProvider, …
+Script     2.2.5                 PowerShellGet                       Desk      {Find-Command, Find-DSCResource, Find-Module, Fin…
+Script     7.0.0.0               PSDiagnostics                       Core      {Disable-PSTrace, Disable-PSWSManCombinedTrace, D…
+Script     2.1.0                 PSReadLine                          Desk      {Get-PSReadLineKeyHandler, Set-PSReadLineKeyHandl…
+Binary     2.0.3                 ThreadJob                           Desk      Start-ThreadJob
+
+    Directory: C:\Program Files\WindowsPowerShell\Modules
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Binary     2.0.2.140             AzureAD                             Desk
+Script     3.0.0                 ExchangeOnlineManagement            Desk      {Get-ConnectionInformation, Get-EXOCasMailbox, Ge…
+Script     0.20.0                Lability                            Desk      {Checkpoint-Lab, Clear-LabModuleCache, Clear-Modu…
+Script     1.0.1                 Microsoft.PowerShell.Operation.Val… Desk      {Get-OperationValidation, Invoke-OperationValidat…
+Script     1.0.0.0               Microsoft.SME.CredSspPolicy         Desk
+Binary     1.0.0.1               PackageManagement                   Desk      {Find-Package, Get-Package, Get-PackageProvider, …
+Script     4.10.1                Pester                              Desk      {Describe, Context, It, Should…}
+Script     3.4.0                 Pester                              Desk      {Describe, Context, It, Should…}
+Script     1.0.0.1               PowerShellGet                       Desk      {Install-Module, Find-Module, Save-Module, Update…
+Script     4.20.0                PSAutoLab                           Desk      {Enable-Internet, Invoke-RefreshLab, Invoke-RunLa…
+Script     2.0.0      beta2      PSReadline                          Desk      {Get-PSReadLineKeyHandler, Set-PSReadLineKeyHandl…
+Script     1.10.0                PSReleaseTools                      Core,Desk {Get-PSReleaseSummary, Get-PSReleaseAsset, Save-P…
+Binary     2.2.0.3               PSWindowsUpdate                     Desk      {Add-WUServiceManager, Enable-WURemoting, Get-Win…
+Manifest   4.1.0.0               xComputerManagement                 Desk
+Manifest   5.7.0.0               xNetworking                         Desk
+Manifest   0.4.0.0               xPendingReboot                      Desk
+Script     9.1.0                 xPSDesiredStateConfiguration        Desk      {Publish-DscModuleAndMof, Publish-ModulesAndCheck…
+Manifest   2.8.0.0               xWindowsUpdate                      Desk
+
+    Directory: C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Manifest   1.0.0.0               AppBackgroundTask                   Core,Desk {Disable-AppBackgroundTaskDiagnosticLog, Enable-A…
+Manifest   2.0.1.0               Appx                                Core,Desk {Add-AppxPackage, Get-AppxPackage, Get-AppxPackag…
+Script     1.0.0.0               AssignedAccess                      Core,Desk {Clear-AssignedAccess, Get-AssignedAccess, Set-As…
+Manifest   1.0.0.0               BitLocker                           Core,Desk {Unlock-BitLocker, Suspend-BitLocker, Resume-BitL…
+Manifest   2.0.0.0               BitsTransfer                        Core,Desk {Add-BitsFile, Complete-BitsTransfer, Get-BitsTra…
+Manifest   1.0.0.0               BranchCache                         Core,Desk {Add-BCDataCacheExtension, Clear-BCCache, Disable…
+Manifest   1.0                   ConfigDefenderPerformance           Core,Desk {New-MpPerformanceRecording, Get-MpPerformanceRep…
+Manifest   1.0                   Defender                            Core,Desk {Get-MpPreference, Set-MpPreference, Add-MpPrefer…
+Manifest   1.0.2.0               DeliveryOptimization                Core,Desk {Delete-DeliveryOptimizationCache, Set-DeliveryOp…
+Manifest   1.0.0.0               DirectAccessClientComponents        Core,Desk {Disable-DAManualEntryPointSelection, Enable-DAMa…
+Script     3.0                   Dism                                Core,Desk {Add-AppxProvisionedPackage, Add-WindowsDriver, A…
+Manifest   1.0.0.0               DnsClient                           Core,Desk {Resolve-DnsName, Clear-DnsClientCache, Get-DnsCl…
+Manifest   1.0.0.0               EventTracingManagement              Core,Desk {Start-EtwTraceSession, New-EtwTraceSession, Get-…
+Manifest   2.0.0.0               International                       Core,Desk {Get-WinDefaultInputMethodOverride, Set-WinDefaul…
+Manifest   1.0.0.0               Kds                                 Core,Desk {Add-KdsRootKey, Get-KdsRootKey, Test-KdsRootKey,…
+Manifest   1.0                   LanguagePackManagement              Core,Desk {Install-Language, Uninstall-Language, Get-Instal…
+Manifest   3.0.0.0               Microsoft.PowerShell.Diagnostics    Core,Desk {Get-WinEvent, Get-Counter, Import-Counter, Expor…
+Manifest   1.0.0.0               Microsoft.PowerShell.LocalAccounts  Core,Desk {Add-LocalGroupMember, Disable-LocalUser, Enable-…
+Manifest   3.1.0.0               Microsoft.PowerShell.Management     Core,Desk {Add-Content, Clear-Content, Clear-ItemProperty, …
+Manifest   1.0                   MMAgent                             Core,Desk {Disable-MMAgent, Enable-MMAgent, Set-MMAgent, Ge…
+Manifest   2.0.0.0               NetAdapter                          Core,Desk {Disable-NetAdapter, Disable-NetAdapterBinding, D…
+Manifest   1.0.0.0               NetConnection                       Core,Desk {Get-NetConnectionProfile, Set-NetConnectionProfi…
+Manifest   1.0.0.0               NetEventPacketCapture               Core,Desk {New-NetEventSession, Remove-NetEventSession, Get…
+Manifest   2.0.0.0               NetLbfo                             Core,Desk {Add-NetLbfoTeamMember, Add-NetLbfoTeamNic, Get-N…
+Manifest   1.0.0.0               NetNat                              Core,Desk {Get-NetNat, Get-NetNatExternalAddress, Get-NetNa…
+Manifest   2.0.0.0               NetQos                              Core,Desk {Get-NetQosPolicy, Set-NetQosPolicy, Remove-NetQo…
+Manifest   2.0.0.0               NetSecurity                         Core,Desk {Get-DAPolicyChange, New-NetIPsecAuthProposal, Ne…
+Manifest   1.0.0.0               NetSwitchTeam                       Core,Desk {New-NetSwitchTeam, Remove-NetSwitchTeam, Get-Net…
+Manifest   1.0.0.0               NetTCPIP                            Core,Desk {Get-NetIPAddress, Get-NetIPInterface, Get-NetIPv…
+Manifest   1.0.0.0               NetworkConnectivityStatus           Core,Desk {Get-DAConnectionStatus, Get-NCSIPolicyConfigurat…
+Manifest   1.0.0.0               NetworkSwitchManager                Core,Desk {Disable-NetworkSwitchEthernetPort, Enable-Networ…
+Manifest   1.0.0.0               NetworkTransition                   Core,Desk {Add-NetIPHttpsCertBinding, Disable-NetDnsTransit…
+Manifest   1.0.0.0               PcsvDevice                          Core,Desk {Get-PcsvDevice, Start-PcsvDevice, Stop-PcsvDevic…
+Manifest   1.0.0.0               PKI                                 Core,Desk {Add-CertificateEnrollmentPolicyServer, Export-Ce…
+Manifest   1.0.0.0               PnpDevice                           Core,Desk {Get-PnpDevice, Get-PnpDeviceProperty, Enable-Pnp…
+Manifest   1.1                   PrintManagement                     Core,Desk {Add-Printer, Add-PrinterDriver, Add-PrinterPort,…
+Binary     1.0.12                ProcessMitigations                  Core,Desk {Get-ProcessMitigation, Set-ProcessMitigation, Co…
+Script     3.0                   Provisioning                        Core,Desk {Install-ProvisioningPackage, Export-Provisioning…
+Manifest   1.0.0.0               ScheduledTasks                      Core,Desk {Get-ScheduledTask, Set-ScheduledTask, Register-S…
+Manifest   2.0.0.0               SecureBoot                          Core,Desk {Confirm-SecureBootUEFI, Set-SecureBootUEFI, Get-…
+Manifest   2.0.0.0               SmbShare                            Core,Desk {Get-SmbShare, Remove-SmbShare, Set-SmbShare, Blo…
+Manifest   2.0.0.0               SmbWitness                          Core,Desk {Get-SmbWitnessClient, Move-SmbWitnessClient, gsm…
+Manifest   1.0.0.2               StartLayout                         Core,Desk {Export-StartLayout, Import-StartLayout, Export-S…
+Manifest   2.0.0.0               Storage                             Core,Desk {Add-InitiatorIdToMaskingSet, Add-PartitionAccess…
+Manifest   2.0.0.0               TLS                                 Core,Desk {New-TlsSessionTicketKey, Enable-TlsSessionTicket…
+Manifest   1.0.0.0               TroubleshootingPack                 Core,Desk {Get-TroubleshootingPack, Invoke-TroubleshootingP…
+Manifest   2.0.0.0               TrustedPlatformModule               Core,Desk {Get-Tpm, Initialize-Tpm, Clear-Tpm, Unblock-Tpm…}
+Binary     2.1.639.0             UEV                                 Core,Desk
+Manifest   2.0.0.0               VpnClient                           Core,Desk {Add-VpnConnection, Set-VpnConnection, Remove-Vpn…
+Manifest   1.0.0.0               Wdac                                Core,Desk {Get-OdbcDriver, Set-OdbcDriver, Get-OdbcDsn, Add…
+Manifest   2.0.0.0               Whea                                Core,Desk {Get-WheaMemoryPolicy, Set-WheaMemoryPolicy}
+Manifest   1.0.0.0               WindowsDeveloperLicense             Core,Desk {Get-WindowsDeveloperLicense, Unregister-WindowsD…
+Script     1.0                   WindowsErrorReporting               Core,Desk {Enable-WindowsErrorReporting, Disable-WindowsErr…
+Manifest   1.0.0.0               WindowsSearch                       Core,Desk {Get-WindowsSearchSetting, Set-WindowsSearchSetti…
+Manifest   1.0.0.0               WindowsUpdate                       Core,Desk Get-WindowsUpdateLog
+
+    Directory: C:\Program Files (x86)\Microsoft SQL Server\130\Tools\PowerShell\Modules
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Manifest   1.0                   SQLPS                               Desk
+
+    Directory: C:\Program Files\Veeam\Backup and Replication\Console
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Binary     0.0.0.0               PUTTY                               Desk
+Manifest   1.0                   Veeam.Backup.PowerShell             Desk
+
+    Directory: C:\Program Files\Veeam\Backup and Replication\Explorers\Exchange
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Manifest   2.0                   Veeam.Exchange.PowerShell           Desk
+
+    Directory: C:\Program Files\Veeam\Backup and Replication\Explorers\SharePoint
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Manifest   2.0                   Veeam.SharePoint.PowerShell         Desk
+
+    Directory: C:\Program Files\Veeam\Backup and Replication\Explorers\SQL
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Manifest   1.0                   Veeam.SQL.PowerShell                Desk
+
+    Directory: C:\Program Files\Veeam\Backup and Replication\Explorers\ActiveDirectory
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Manifest   1.0                   Veeam.ActiveDirectory.PowerShell    Desk
+
+    Directory: C:\Program Files\Veeam\Backup and Replication\Explorers\Teams
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Manifest   2.0                   Veeam.Teams.PowerShell              Desk
+
+    Directory: C:\Program Files\Veeam\Backup and Replication\Explorers\Oracle
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Manifest   1.0                   Veeam.Oracle.PowerShell             Desk
+
+PS C:\> get-module -ListAvailable -Name PowerShellGet
+
+    Directory: C:\program files\powershell\7\Modules
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Script     2.2.5                 PowerShellGet                       Desk      {Find-Command, Find-DSCResource, Find-Module, Fin…
+
+    Directory: C:\Program Files\WindowsPowerShell\Modules
+
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Script     1.0.0.1               PowerShellGet                       Desk      {Install-Module, Find-Module, Save-Module, Update…
+
+
+
+PS C:\> get-module -ListAvailable -Name PowerShellGet | Select-Object -Property *
+
+LogPipelineExecutionDetails : False
+Name                        : PowerShellGet
+Path                        : C:\program files\powershell\7\Modules\PowerShellGet\PowerShellGet.psd1
+ImplementingAssembly        : 
+Definition                  : 
+Description                 : PowerShell module with commands for discovering, installing, updating and publishing the
+                              PowerShell artifacts like Modules, DSC Resources, Role Capabilities and Scripts.
+Guid                        : 1d73a601-4a6c-43c5-ba3f-619b18bbb404
+HelpInfoUri                 : http://go.microsoft.com/fwlink/?linkid=2113539
+ModuleBase                  : C:\program files\powershell\7\Modules\PowerShellGet
+PrivateData                 : {PackageManagementProviders, PSData, SupportedPowerShellGetFormatVersions}
+ExperimentalFeatures        : {}
+Tags                        : {Packagemanagement, Provider, PSEdition_Desktop, PSEdition_Core…}
+ProjectUri                  : https://go.microsoft.com/fwlink/?LinkId=828955
+IconUri                     : 
+LicenseUri                  : https://go.microsoft.com/fwlink/?LinkId=829061
+ReleaseNotes                : ### 2.2.5
+                              - Security patch for code injection bug
+                              
+                              ### 2.2.4.1
+                              - Remove catalog file
+                              
+                              ### 2.2.3
+                              - Update `HelpInfoUri` to point to the latest content (#560)
+                              - Improve discovery of usable nuget.exe binary (Thanks bwright86!) (#558)
+                              
+                              ### 2.2.2
+                              Bug Fix
+                              
+                              - Update casing of DscResources output
+                              
+                              ### 2.2.1
+                              Bug Fix
+                              
+                              - Allow DscResources to work on case sensitive platforms (#521)
+                              - Fix for failure to return credential provider when using private feeds (#521)
+                              
+                              ## 2.2
+                              Bug Fix
+                              
+                              - Fix for prompting for credentials when passing in -Credential parameter when using
+                              Register-PSRepository
+                              
+                              ## 2.1.5
+                              New Features
+                              
+                              - Add and remove nuget based repositories as a nuget source when nuget client tool is installed
+                              (#498)
+                              
+                              Bug Fix
+                              
+                              - Fix for 'Failed to publish module' error thrown when publishing modules (#497)
+                              
+                              ## 2.1.4
+                              - Fixed hang while publishing some packages (#478)
+                              
+                              ## 2.1.3
+                              New Features
+                              
+                              - Added -Scope parameter to Update-Module (Thanks @lwajswaj!) (#471)
+                              - Added -Exclude parameter to Publish-Module (Thanks @Benny1007!) (#191)
+                              - Added -SkipAutomaticTags parameter to Publish-Module (Thanks @awickham10!) (#452)
+                              
+                              Bug Fix
+                              
+                              - Fixed issue with finding modules using macOS and .NET Core 3.0
+                              
+                              ## 2.1.2
+                              
+                              New Feature
+                              
+                              - Added support for registering repositories with special characters
+                              
+                              ## 2.1.1
+                              
+                              - Fix DSC resource folder structure
+                              
+                              ## 2.1.0
+                              
+                              Breaking Change
+                              
+                              - Default installation scope for Update-Module and Update-Script has changed to match
+                              Install-Module and Install-Script. For Windows PowerShell (version 5.1 or below), the default
+                              scope is AllUsers when running in an elevated session, and CurrentUser at all other times.
+                                For PowerShell version 6.0.0 and above, the default installation scope is always CurrentUser.
+                              (#421)
+                              
+                              Bug Fixes
+                              
+                              - Update-ModuleManifest no longer clears FunctionsToExport, AliasesToExport, nor NestModules (#415
+                              & #425) (Thanks @pougetat and @tnieto88!)
+                              - Update-Module no longer changes repository URL (#407)
+                              - Update-ModuleManifest no longer preprends 'PSGet_' to module name (#403) (Thanks @ThePoShWolf)
+                              - Update-ModuleManifest now throws error and fails to update when provided invalid entries (#398)
+                              (Thanks @pougetat!)
+                              - Ignore files no longer being included when uploading modules (#396)
+                              
+                              New Features
+                              
+                              - New DSC resource, PSRepository (#426) (Thanks @johlju!)
+                              - Piping of PS respositories (#420)
+                              - utf8 support for .nuspec (#419)
+                              
+                              ## 2.0.4
+                              
+                              Bug Fix
+                              * Remove PSGallery availability checks (#374)
+                              
+                              ## 2.0.3
+                              
+                              Bug fixes and Improvements
+                              * Fix CommandAlreadyAvailable error for PackageManagement module (#333)
+                              * Remove trailing whitespace when value is not provided for Get-PSScriptInfoString (#337) (Thanks
+                              @thomasrayner)
+                              * Expanded aliases for improved readability (#338) (Thanks @lazywinadmin)
+                              * Improvements for Catalog tests (#343)
+                              * Fix Update-ScriptInfoFile to preserve PrivateData (#346) (Thanks @tnieto88)
+                              * Import modules with many commands faster (#351)
+                              
+                              New Features
+                              * Tab completion for -Repository parameter (#339) and for Publish-Module -Name (#359) (Thanks
+                              @matt9ucci)
+                              
+                              ## 2.0.1
+                              
+                              Bug fixes
+                              - Resolved Publish-Module doesn't report error but fails to publish module (#316)
+                              - Resolved CommandAlreadyAvailable error while installing the latest version of PackageManagement
+                              module (#333)
+                              
+                              ## 2.0.0
+                              
+                              Breaking Change
+                              - Default installation scope for Install-Module, Install-Script, and Install-Package has changed.
+                              For Windows PowerShell (version 5.1 or below), the default scope is AllUsers when running in an
+                              elevated session, and CurrentUser at all other times.
+                                For PowerShell version 6.0.0 and above, the default installation scope is always CurrentUser.
+                              
+                              ## 1.6.7
+                              
+                              Bug fixes
+                              - Resolved Install/Save-Module error in PSCore 6.1.0-preview.4 on Ubuntu 18.04 OS (WSL/Azure)
+                              (#313)
+                              - Updated error message in Save-Module cmdlet when the specified path is not accessible (#313)
+                              - Added few additional verbose messages (#313)
+                              
+                              ## 1.6.6
+                              
+                              Dependency Updates
+                              * Add dependency on version 4.1.0 or newer of NuGet.exe
+                              * Update NuGet.exe bootstrap URL to https://aka.ms/psget-nugetexe
+                              
+                              Build and Code Cleanup Improvements
+                              * Improved error handling in network connectivity tests.
+                              
+                              Bug fixes
+                              - Change Update-ModuleManifest so that prefix is not added to CmdletsToExport.
+                              - Change Update-ModuleManifest so that parameters will not reset to default values.
+                              - Specify AllowPrereleseVersions provider option only when AllowPrerelease is specified on the
+                              PowerShellGet cmdlets.
+                              
+                              ## 1.6.5
+                              
+                              New features
+                              * Allow Pester/PSReadline installation when signed by non-Microsoft certificate (#258)
+                                - Whitelist installation of non-Microsoft signed Pester and PSReadline over Microsoft signed
+                              Pester and PSReadline.
+                              
+                              Build and Code Cleanup Improvements
+                              * Splitting of functions (#229) (Thanks @Benny1007)
+                                - Moves private functions into respective private folder.
+                                - Moves public functions as defined in PSModule.psd1 into respective public folder.
+                                - Removes all functions from PSModule.psm1 file.
+                                - Dot sources the functions from PSModule.psm1 file.
+                                - Uses Export-ModuleMember to export the public functions from PSModule.psm1 file.
+                              
+                              * Add build step to construct a single .psm1 file (#242) (Thanks @Benny1007)
+                                - Merged public and private functions into one .psm1 file to increase load time performance.
+                              
+                              Bug fixes
+                              - Fix null parameter error caused by MinimumVersion in Publish-PackageUtility (#201)
+                              - Change .ExternalHelp link from PSGet.psm1-help.xml to PSModule-help.xml in PSModule.psm1 file
+                              (#215)
+                              - Change Publish-* to allow version comparison instead of string comparison (#219)
+                              - Ensure Get-InstalledScript -RequiredVersion works when versions have a leading 0 (#260)
+                              - Add positional path to Save-Module and Save-Script (#264, #266)
+                              - Ensure that Get-AuthenticodePublisher verifies publisher and that installing or updating a
+                              module checks for approprite catalog signature (#272)
+                              - Update HelpInfoURI to 'http://go.microsoft.com/fwlink/?linkid=855963' (#274)
+                              
+                              
+                              ## 1.6.0
+                              
+                              New features
+                              * Prerelease Version Support (#185)
+                                - Implemented prerelease versions functionality in PowerShellGet cmdlets.
+                                - Enables publishing, discovering, and installing the prerelease versions of modules and scripts
+                              from the PowerShell Gallery.
+                                -
+                              [Documentation](https://docs.microsoft.com/en-us/powershell/gallery/psget/module/PrereleaseModule)
+                              
+                              * Enabled publish cmdlets on PWSH and Nano Server (#196)
+                                - Dotnet command version 2.0.0 or newer should be installed by the user prior to using the
+                              publish cmdlets on PWSH and Windows Nano Server.
+                                - Users can install the dotnet command by following the instructions specified at
+                              https://aka.ms/dotnet-install-script.
+                                - On Windows, users can install the dotnet command by running *Invoke-WebRequest -Uri
+                              'https://dot.net/v1/dotnet-install.ps1' -OutFile '.\dotnet-install.ps1'; & '.\dotnet-install.ps1'
+                              -Channel Current -Version '2.0.0'*
+                                - Publish cmdlets on Windows PowerShell supports using the dotnet command for publishing
+                              operations.
+                              
+                              Breaking Change
+                              - PWSH: Changed the installation location of AllUsers scope to the parent of $PSHOME instead of
+                              $PSHOME. It is the SHARED_MODULES folder on PWSH.
+                              
+                              Bug fixes
+                              - Update HelpInfoURI to 'https://go.microsoft.com/fwlink/?linkid=855963' (#195)
+                              - Ensure MyDocumentsPSPath path is correct (#179) (Thanks @lwsrbrts)
+                              
+                              
+                              ## 1.5.0.0
+                              
+                              New features
+                              * Added support for modules requiring license acceptance (#150)
+                                - [Documentation](https://docs.microsoft.com/en-us/powershell/gallery/psget/module/RequireLicense
+                              Acceptance)
+                              
+                              * Added version for REQUIREDSCRIPTS (#162)
+                                - Enabled following scenarios for REQUIREDSCRIPTS
+                                  - [1.0] - RequiredVersion
+                                  - [1.0,2.0] - Min and Max Version
+                                  - (,1.0] - Max Version
+                                  - 1.0 - Min Version
+                              
+                              Bug fixes
+                              * Fixed empty version value in nuspec (#157)
+                              
+                              
+                              ## 1.1.3.2
+                              * Disabled PowerShellGet Telemetry on PS Core as PowerShell Telemetry APIs got removed in
+                              PowerShell Core beta builds. (#153)
+                              * Fixed for DateTime format serialization issue. (#141)
+                              * Update-ModuleManifest should add ExternalModuleDependencies value as a collection. (#129)
+                              
+                              ## 1.1.3.1
+                              
+                              New features
+                              * Added `PrivateData` field to ScriptFileInfo. (#119)
+                              
+                              Bug fixes
+                              
+                              ## 1.1.2.0
+                              
+                              Bug fixes
+                              
+                              ## 1.1.1.0
+                              
+                              Bug fixes
+                              
+                              ## 1.1.0.0
+                              
+                              * Initial release from GitHub.
+                              * PowerShellCore support.
+                              
+                              ## For full history of release notes see changelog:
+                              https://github.com/PowerShell/PowerShellGet/blob/master/CHANGELOG.md
+RepositorySourceLocation    : 
+Version                     : 2.2.5
+ModuleType                  : Script
+Author                      : Microsoft Corporation
+AccessMode                  : ReadWrite
+ClrVersion                  : 
+CompanyName                 : Microsoft Corporation
+Copyright                   : (c) Microsoft Corporation. All rights reserved.
+DotNetFrameworkVersion      : 
+ExportedFunctions           : {[Find-Command, Find-Command], [Find-DSCResource, Find-DSCResource], [Find-Module, Find-Module],
+                              [Find-RoleCapability, Find-RoleCapability]…}
+Prefix                      : 
+ExportedCmdlets             : {}
+ExportedCommands            : {[Find-Command, Find-Command], [Find-DSCResource, Find-DSCResource], [Find-Module, Find-Module],
+                              [Find-RoleCapability, Find-RoleCapability]…}
+FileList                    : {C:\program files\powershell\7\Modules\PowerShellGet\PSModule.psm1, C:\program
+                              files\powershell\7\Modules\PowerShellGet\PSGet.Format.ps1xml, C:\program
+                              files\powershell\7\Modules\PowerShellGet\PSGet.Resource.psd1}
+CompatiblePSEditions        : {}
+ModuleList                  : {}
+NestedModules               : {}
+PowerShellHostName          : 
+PowerShellHostVersion       : 
+PowerShellVersion           : 3.0
+ProcessorArchitecture       : None
+Scripts                     : {}
+RequiredAssemblies          : {}
+RequiredModules             : {PackageManagement}
+RootModule                  : PSModule.psm1
+ExportedVariables           : {[PSGetPath, ]}
+ExportedAliases             : {[inmo, inmo], [fimo, fimo], [upmo, upmo], [pumo, pumo]}
+ExportedDscResources        : {}
+SessionState                : 
+OnRemove                    : 
+ExportedFormatFiles         : {C:\program files\powershell\7\Modules\PowerShellGet\PSGet.Format.ps1xml}
+ExportedTypeFiles           : {}
+
+LogPipelineExecutionDetails : False
+Name                        : PowerShellGet
+Path                        : C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PowerShellGet.psd1
+ImplementingAssembly        : 
+Definition                  : 
+Description                 : PowerShell module with commands for discovering, installing, updating and publishing the
+                              PowerShell artifacts like Modules, DSC Resources, Role Capabilities and Scripts.
+Guid                        : 1d73a601-4a6c-43c5-ba3f-619b18bbb404
+HelpInfoUri                 : https://go.microsoft.com/fwlink/?LinkId=393271
+ModuleBase                  : C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1
+PrivateData                 : {PackageManagementProviders, PSData, SupportedPowerShellGetFormatVersions}
+ExperimentalFeatures        : {}
+Tags                        : {PackageManagement, Provider, PSEdition_Desktop, PSEdition_Core…}
+ProjectUri                  : https://go.microsoft.com/fwlink/?LinkId=828955
+IconUri                     : 
+LicenseUri                  : https://go.microsoft.com/fwlink/?LinkId=829061
+ReleaseNotes                : - PowerShellCore support
+                              - Security enhancements including the enforcement of catalog-signed modules during installation
+                              - Authenticated Repository support
+                              - Proxy Authentication support
+                              - Responses to a number of user requests and issues
+RepositorySourceLocation    : 
+Version                     : 1.0.0.1
+ModuleType                  : Script
+Author                      : Microsoft Corporation
+AccessMode                  : ReadWrite
+ClrVersion                  : 
+CompanyName                 : Microsoft Corporation
+Copyright                   : (c) Microsoft Corporation. All rights reserved.
+DotNetFrameworkVersion      : 
+ExportedFunctions           : {[Install-Module, Install-Module], [Find-Module, Find-Module], [Save-Module, Save-Module],
+                              [Update-Module, Update-Module]…}
+Prefix                      : 
+ExportedCmdlets             : {}
+ExportedCommands            : {[Install-Module, Install-Module], [Find-Module, Find-Module], [Save-Module, Save-Module],
+                              [Update-Module, Update-Module]…}
+FileList                    : {C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSModule.psm1, C:\Program
+                              Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSGet.Format.ps1xml, C:\Program
+                              Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSGet.Resource.psd1}
+CompatiblePSEditions        : {}
+ModuleList                  : {}
+NestedModules               : {}
+PowerShellHostName          : 
+PowerShellHostVersion       : 
+PowerShellVersion           : 3.0
+ProcessorArchitecture       : None
+Scripts                     : {}
+RequiredAssemblies          : {}
+RequiredModules             : {PackageManagement}
+RootModule                  : PSModule.psm1
+ExportedVariables           : {}
+ExportedAliases             : {[inmo, inmo], [fimo, fimo], [upmo, upmo], [pumo, pumo]}
+ExportedDscResources        : {}
+SessionState                : 
+OnRemove                    : 
+ExportedFormatFiles         : {C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSGet.Format.ps1xml}
+ExportedTypeFiles           : {}
+
+
+PS C:\> get-module -ListAvailable -Name PowerShellGet | Select-Object -Property Path
+
+Path
+----
+C:\program files\powershell\7\Modules\PowerShellGet\PowerShellGet.psd1
+C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PowerShellGet.psd1
+
+PS C:\> get-module
+
+ModuleType Version    PreRelease Name                                ExportedCommands
+---------- -------    ---------- ----                                ----------------
+Manifest   7.0.0.0               Microsoft.PowerShell.Host           {Start-Transcript, Stop-Transcript}
+Manifest   7.0.0.0               Microsoft.PowerShell.Management     {Add-Content, Clear-Content, Clear-Item, Clear-ItemProperty…
+Manifest   7.0.0.0               Microsoft.PowerShell.Utility        {Add-Member, Add-Type, Clear-Variable, Compare-Object…}
+Script     7.0.0.0               PSDiagnostics                       {Disable-PSTrace, Disable-PSWSManCombinedTrace, Disable-WSM…
+Script     2.1.0                 PSReadLine                          {Get-PSReadLineKeyHandler, Get-PSReadLineOption, Remove-PSR…
+
+PS C:\> remove-module -Name PSDiagnostics
+PS C:\> get-module
+
+ModuleType Version    PreRelease Name                                ExportedCommands
+---------- -------    ---------- ----                                ----------------
+Manifest   7.0.0.0               Microsoft.PowerShell.Host           {Start-Transcript, Stop-Transcript}
+Manifest   7.0.0.0               Microsoft.PowerShell.Management     {Add-Content, Clear-Content, Clear-Item, Clear-ItemProperty…
+Manifest   7.0.0.0               Microsoft.PowerShell.Utility        {Add-Member, Add-Type, Clear-Variable, Compare-Object…}
+Script     2.1.0                 PSReadLine                          {Get-PSReadLineKeyHandler, Get-PSReadLineOption, Remove-PSR…
+
+PS C:\> Import-module -Name PSDiagnostics
+PS C:\> get-module
+
+ModuleType Version    PreRelease Name                                ExportedCommands
+---------- -------    ---------- ----                                ----------------
+Manifest   7.0.0.0               Microsoft.PowerShell.Host           {Start-Transcript, Stop-Transcript}
+Manifest   7.0.0.0               Microsoft.PowerShell.Management     {Add-Content, Clear-Content, Clear-Item, Clear-ItemProperty…
+Manifest   7.0.0.0               Microsoft.PowerShell.Utility        {Add-Member, Add-Type, Clear-Variable, Compare-Object…}
+Script     7.0.0.0               PSDiagnostics                       {Disable-PSTrace, Disable-PSWSManCombinedTrace, Disable-WSM…
+Script     2.1.0                 PSReadLine                          {Get-PSReadLineKeyHandler, Get-PSReadLineOption, Remove-PSR…
+
+PS C:\> Import-module -Name AzureAD
+PS C:\> get-module
+
+ModuleType Version    PreRelease Name                                ExportedCommands
+---------- -------    ---------- ----                                ----------------
+Binary     2.0.2.140             AzureAD                             {Add-AzureADApplicationOwner, Add-AzureADDeviceRegisteredOw…
+Manifest   7.0.0.0               Microsoft.PowerShell.Host           {Start-Transcript, Stop-Transcript}
+Manifest   7.0.0.0               Microsoft.PowerShell.Management     {Add-Content, Clear-Content, Clear-Item, Clear-ItemProperty…
+Manifest   7.0.0.0               Microsoft.PowerShell.Utility        {Add-Member, Add-Type, Clear-Variable, Compare-Object…}
+Script     7.0.0.0               PSDiagnostics                       {Disable-PSTrace, Disable-PSWSManCombinedTrace, Disable-WSM…
+Script     2.1.0                 PSReadLine                          {Get-PSReadLineKeyHandler, Get-PSReadLineOption, Remove-PSR…
+
+PS C:\> stop-transcript
+**********************
+PowerShell transcript end
+End time: 20221013231208
+**********************
