@@ -1,3 +1,5 @@
+# Example: .\Test-WindowsServiceStarted.ps1 -Name 'winrm'
+
 [CmdletBinding()]
 param(
     [Parameter()]
