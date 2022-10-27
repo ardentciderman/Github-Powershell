@@ -7,10 +7,15 @@
 # profile object informs us that our first steps will be to create the basic password
 # profile in order to provision the new user.
 
+# Connect to the Tenant
+
+Connect-AzureAD
+Connect-ExchangeOnline
+
 $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
 $PasswordProfile.Password = "Pas13579"
 
 # Provision the base user account
 
-New-AzureADUser -DisplayName "Lisa Pownall" -PasswordProfile $PasswordProfile -UserPrincipalName "lisa.pownall@44vpwy.onmicrosoft.com" -MailNickname "lisa.pownall" -AccountEnabled $true
+New-AzureADUser -DisplayName "Derek Trotter" -PasswordProfile $PasswordProfile -UserPrincipalName "derek.trotter@44vpwy.onmicrosoft.com" -MailNickname "derek.trotter" -AccountEnabled $true
 
