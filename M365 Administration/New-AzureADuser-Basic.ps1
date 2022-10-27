@@ -17,5 +17,5 @@ $PasswordProfile.Password = "Pas13579"
 
 # Provision the base user account
 
-New-AzureADUser -DisplayName "Derek Trotter" -PasswordProfile $PasswordProfile -UserPrincipalName "derek.trotter@44vpwy.onmicrosoft.com" -MailNickname "derek.trotter" -AccountEnabled $true
+New-AzureADUser -DisplayName "Rodney Trotter" -PasswordProfile $PasswordProfile -UserPrincipalName "rodney.trotter@44vpwy.onmicrosoft.com" -MailNickname "rodney.trotter" -AccountEnabled $true
 
