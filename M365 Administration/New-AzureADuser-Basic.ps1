@@ -9,7 +9,7 @@
 
 # Connect to the Tenant
 
-# Connect-AzureAD
+Connect-AzureAD
 # Connect-ExchangeOnline
 
 $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
