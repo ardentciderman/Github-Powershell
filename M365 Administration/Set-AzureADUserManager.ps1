@@ -1,4 +1,3 @@
-# Assign the user's manager in Azure AD
-
-Set-AzureADUserManager -ObjectId rodney.trotter@44vpwy.onmicrosoft.com
--RefObjectId (Get-AzureADuser -ObjectID joe.woodruff@44vpwy.onmicrosoft.com).objectId
+Set-AzureADUserManager
+-ObjectId rodney.trotter@44vpwy.onmicrosoft.com 
+-RefObjectId 9c8b7ba8-af0a-4ddb-aeb1-6a02347f2cba
